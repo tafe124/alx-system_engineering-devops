@@ -1,7 +1,6 @@
-# Fix an issue when Wordpress is
-# trying to initializes
-
-exec { 'fix-wordpress':
-  command => "/bin/sed -i /var/www/html/wp-settings.php \
-  -e 's/class-wp-locale.phpp/class-wp-locale.php/'"
-} 
+# pupper manifest to edit a file content
+exec { 'sed':
+  command => "sed -i 's/phpp/php/' /var/www/html/wp-settings.php",
+  path    => ['usr/bin:/usr/sbin:/bin']
+}
+ 
